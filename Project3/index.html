@@ -10,40 +10,56 @@
 </head>
 
 <body>
-    <header>
-        <img src="images\logo.svg" alt="logo">
+    <div class="container">
 
-        <ul class="menu">
-            <li>БАНК</li>
-            <li>БИЗНЕС</li>
-            <li>ИНВЕСТИЦИИ</li>
-            <li>СТРАХОВАНИЕ</li>
-            <li>МОБАЙЛ</li>
-            <li>ПУТЕШЕСТВИЯ</li>
-            <li>РАЗВЛЕЧЕНИЯ</li>
-        </ul>
-        <button class="login">ВОЙТИ</button>
-    </header>
-    <main>
-        <h1>Конвертер валют онлайн</h1>
-        <div class="section">
-            <span>У меня есть </span>
-            <div class="buttons">
-                <button>RUB</button>
-                <button>USD</button>
-                <button>EUR</button>
-                <button>GBP</button>
+
+        <header>
+            <img src="images\logo.svg" alt="logo">
+
+            <ul class="menu">
+                <li>БАНК</li>
+                <li>БИЗНЕС</li>
+                <li>ИНВЕСТИЦИИ</li>
+                <li>СТРАХОВАНИЕ</li>
+                <li>МОБАЙЛ</li>
+                <li>ПУТЕШЕСТВИЯ</li>
+                <li>РАЗВЛЕЧЕНИЯ</li>
+            </ul>
+            <button class="login">ВОЙТИ</button>
+        </header>
+        <main>
+            <h1>Конвертер валют онлайн</h1>
+            <div class="converter">
+                <div class="section">
+                    <span>У меня есть </span>
+                    <div class="buttons btns">
+                        <button>RUB</button>
+                        <button>USD</button>
+                        <button>EUR</button>
+                        <button>GBP</button>
+                    </div>
+                    <div class="area">
+                        <input type="number" placeholder="Amount">
+                        <label>label</label>
+                    </div>
+                </div>
+                <div class="section">
+                    <span>Хочу приобрести</span>
+                    <div class="buttons btns2">
+                        <button>RUB</button>
+                        <button>USD</button>
+                        <button>EUR</button>
+                        <button>GBP</button>
+                    </div>
+                    <div class="area">
+                        <input type="number" placeholder="Amount">
+                        <label>label</label>
+                    </div>
+                </div>
+
             </div>
-            <div class="area">
-                <input type="number" placeholder="Amount">
-                <label>label</label>
-            </div>
-        </div>
-        <div class="section">
-
-        </div>
-
-    </main>
+        </main>
+    </div>
 </body>
 <script src="./script.js"></script>
 

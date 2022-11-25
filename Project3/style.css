@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 * {
     margin: 0px;
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
     padding: 0px;
 }
@@ -8,6 +10,7 @@
 /* Header */
 header {
     display: flex;
+    
     justify-content: space-around;
     align-items: center;
     background-color: gainsboro;
@@ -39,25 +42,52 @@ header .login {
 }
 
 /* Main */
-
-main>h1 {
-    font-size: 2.25rem;
-}
-
-main > .section{
+main{
+    margin: 56px 0px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+}
+main > h1 {
+    font-size: 2.25rem; 
+    margin-bottom: 33px;
+    text-align: center;
+}
+main > .converter{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.section {
+    display: flex;
+    flex-direction: column;
+    margin-right: 25px;
+    margin-bottom: 20px;
 }
 
-main > .section > .buttons{
-    max-width: 259px;
+.section>span,
+.buttons {
+    margin-bottom: 15px;
+}
+
+.section>.buttons {
+    width: fit-content;
     border: 1px solid #E5E5E5;
+    display: flex;
+    border-radius: 1px;
+
+}
+.btn-color{
+    background-color: blueviolet;
 }
 
-main > .section > .buttons > button{
+.section>.buttons>button {
     /* background: none; */
+    width: 63.81px;
+    height: 28px;
     border: none;
+    font-size: 12px;
+    line-height: 14px;
 }
 
 .section>.area {
@@ -75,6 +105,6 @@ main > .section > .buttons > button{
     height: calc(100% * 1/2);
     border: 1px solid #E5E5E5;
     font-weight: 700;
-    font-size: 4vw;
+    font-size: 2vw;
     width: 100%;
 }
