@@ -50,19 +50,28 @@ defBtn.classList.add("btn-color");
 base = defBtn.innerHTML;
 console.log(base);
 
+
 // default option2
 let defBtn2 = document.querySelector(".btns2 button:nth-child(2)");
 defBtn2.classList.add("btn-color");
 defBtn2.classList.add("btn-color");
 rate = defBtn2.innerHTML;
 console.log(rate);
+////
+let lbl = document.querySelector("label");
+
 
 // async function getData() {
 
 // }
-function request(base, rate) {
+async function request(base, rate) {
     let url = `https://api.exchangerate.host/latest?base=${base}&symbols=${rate}`
-    fetch(url).then(res => res.json()).then(data => console.log(data))
+    let res = await fetch(url);
+    let data = await res.json();
+    console.log(data);
+    rate = data.rates;
+    console.log(rate.value);
+    lbl.innerHTML = `1 ${base} = ${data.rates}`
 }
 
 request(base, rate)
