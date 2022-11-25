@@ -15,6 +15,7 @@ function addColor(ev) {
     ev.target.classList.add("btn-color");
     base = ev.target.innerHTML;
     console.log(base);
+    request(base, rate);
 }
 
 btns.forEach(element => {
@@ -34,6 +35,7 @@ function addColor2(ev) {
     ev.target.classList.add("btn-color");
     rate = ev.target.innerHTML;
     console.log(rate);
+    request(base, rate)
 }
 
 btns2.forEach(element => {
@@ -54,3 +56,13 @@ defBtn2.classList.add("btn-color");
 defBtn2.classList.add("btn-color");
 rate = defBtn2.innerHTML;
 console.log(rate);
+
+// async function getData() {
+
+// }
+function request(base, rate) {
+    let url = `https://api.exchangerate.host/latest?base=${base}&symbols=${rate}`
+    fetch(url).then(res => res.json()).then(data => console.log(data))
+}
+
+request(base, rate)
