@@ -58,20 +58,74 @@ defBtn2.classList.add("btn-color");
 rate = defBtn2.innerHTML;
 console.log(rate);
 ////
-let lbl = document.querySelector("label");
+let lbl1 = document.getElementById("lbl1");
+let lbl2 = document.getElementById("lbl2");
+
 
 
 // async function getData() {
 
 // }
+
 async function request(base, rate) {
     let url = `https://api.exchangerate.host/latest?base=${base}&symbols=${rate}`
     let res = await fetch(url);
     let data = await res.json();
     console.log(data);
-    rate = data.rates;
-    console.log(rate.value);
-    lbl.innerHTML = `1 ${base} = ${data.rates}`
+    // rate = data.rates;
+    // console.log(rate.value);
+
+    if (rate == 'USD') {
+        lbl1.innerHTML = `1 ${base} = ${data.rates.USD} USD`
+        // base = "USD";
+        // rate = 'RUB';
+        // let url = `https://api.exchangerate.host/latest?base=${base}&symbols=${rate}`;
+        // res = await fetch(url);
+        // data = await res.json();
+        // lbl2.innerHTML = `1 ${base} = ${data.rates.RUB} RUB`
+    }
+    else if (rate == 'RUB') {
+        lbl1.innerHTML = `1 ${base} = ${data.rates.RUB} RUB`
+        // base = "RUB";
+        // lbl2.innerHTML = `1 ${base} = ${data.rates.RUB} RUB`
+    }
+    else if (rate == 'EUR') {
+        lbl1.innerHTML = `1 ${base} = ${data.rates.EUR} EUR`
+    }
+    else if (rate == 'GBP') {
+        lbl1.innerHTML = `1 ${base} = ${data.rates.GBP} GBP`
+    }
+
+    let url1 = `https://api.exchangerate.host/latest?base=${rate}&symbols=${base}`
+    let r = base;
+    base = rate;
+    rate = r;
+    let res1 = await fetch(url1);
+    let data1 = await res1.json();
+    console.log(data1);
+    if (rate == 'USD') {
+        lbl2.innerHTML = `1 ${base} = ${data1.rates.USD} USD`
+        // base = "USD";
+        // rate = 'RUB';
+        // let url = `https://api.exchangerate.host/latest?base=${base}&symbols=${rate}`;
+        // res = await fetch(url);
+        // data = await res.json();
+        // lbl2.innerHTML = `1 ${base} = ${data.rates.RUB} RUB`
+    }
+    else if (rate == 'RUB') {
+        lbl2.innerHTML = `1 ${base} = ${data1.rates.RUB} RUB`
+        // base = "RUB";
+        // lbl2.innerHTML = `1 ${base} = ${data.rates.RUB} RUB`
+    }
+    else if (rate == 'EUR') {
+        lbl2.innerHTML = `1 ${base} = ${data1.rates.EUR} EUR`
+    }
+    else if (rate == 'GBP') {
+        lbl2.innerHTML = `1 ${base} = ${data1.rates.GBP} GBP`
+    }
+
+
+
 }
 
 request(base, rate)
