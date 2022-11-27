@@ -18,7 +18,9 @@ header {
     font-size: 1rem;
     min-width: min-content;
 }
-
+header img{
+    /* cursor: pointer; */
+}
 .menu {
     display: flex;
     flex-wrap: wrap;
@@ -33,7 +35,7 @@ header {
     flex-direction: row;
     justify-content: space-around;
     flex-grow: 2;
-    background-color: antiquewhite;
+    /* background-color: white; */
 }
 .menu li a{
     text-decoration: none;

@@ -1,4 +1,4 @@
-let a = document.querySelectorAll("a");
+let a = document.querySelectorAll(".menu a");
 a.forEach(element => {
     element.addEventListener("click", (event) => {
         event.preventDefault();
@@ -57,7 +57,6 @@ btns2.forEach(element => {
 
 // default option1
 let defBtn = document.querySelector(".btns button:first-child");
-// console.log(defBtn.innerHTML);
 defBtn.classList.add("btn-color");
 base = defBtn.innerHTML;
 console.log(base);
@@ -97,8 +96,6 @@ async function request(base, rate) {
 
 }
 
-
-
 function Convert(data, rate) {
     let input1 = document.querySelector(".base");
     let input2 = document.querySelector(".rate");
@@ -108,10 +105,18 @@ function Convert(data, rate) {
     result = Number(input1.value) * Number(value);
     input2.value = result;
     input1.addEventListener("keyup", () => {
-        // let input1 = document.querySelector(".base");
         console.log(input1.value);
         result = Number(input1.value) * Number(value);
         console.log(result);
         input2.value = result;
     })
 }
+
+
+
+// login button
+
+let logBtn = document.querySelector(".login");
+logBtn.addEventListener("click",()=>{
+    
+})
