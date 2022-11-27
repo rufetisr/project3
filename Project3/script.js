@@ -1,3 +1,11 @@
+let a = document.querySelectorAll("a");
+    a.forEach(element => {
+        element.addEventListener("click",(event)=>{
+            event.preventDefault();
+        })   
+    });
+
+
 let btns = document.querySelectorAll(".btns button");
 let btns2 = document.querySelectorAll(".btns2 button");
 let base = "";

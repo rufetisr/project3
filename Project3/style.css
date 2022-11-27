@@ -24,6 +24,7 @@ header {
     flex-wrap: wrap;
     margin-left: 15px;
     list-style-type: none;
+    gap: 1em;
 }
 
 .menu li {
@@ -31,6 +32,12 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    flex-grow: 2;
+    background-color: antiquewhite;
+}
+.menu li a{
+    text-decoration: none;
+    
 }
 
 header .login {
@@ -38,7 +45,13 @@ header .login {
     padding: 10px;
     width: min-content;
     border-radius: 4px;
-    /* height: max-content; */
+    background-color: rgb(202, 50, 248);
+    opacity: 0.5;
+    transition: opacity 2s;
+}
+header .login:hover{
+    cursor: pointer;
+    opacity: 2;
 }
 
 /* Main */
