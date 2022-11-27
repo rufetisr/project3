@@ -76,6 +76,8 @@ main > .converter{
     flex-direction: column;
     margin-right: 25px;
     margin-bottom: 20px;
+    box-shadow: 1px 5px 10px 3px blueviolet;
+    padding: 10px;
 }
 
 .section>span,
@@ -120,4 +122,9 @@ main > .converter{
     font-weight: 700;
     font-size: 2vw;
     width: 100%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    appearance: none;
 }

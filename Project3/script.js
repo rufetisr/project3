@@ -84,24 +84,26 @@ async function request(base, rate) {
     let data1 = await res1.json();
     lbl2.innerHTML = `1 ${rate} = ${data1.rates[`${base}`]} ${base}`
 
-    Convert(data);
+    Convert(data, rate);
 }
 
 
 
-function Convert(data) {
-    console.log(data);
-    let lbl1 = document.getElementById("lbl1");
+function Convert(data, rate) {
+    // console.log(data);
+    // let lbl1 = document.getElementById("lbl1");
     let input2 = document.querySelector(".rate");
-    console.log(lbl1.innerText);
-    let rate = lbl1.innerText.split("=")[1].split(" ")[1]
-    console.log(rate);
+    let value = data.rates[`${rate}`]
+    console.log(value);
     let result = 0;
+    let input1 = document.querySelector(".base");
+    result = Number(input1.value) * Number(value);
+    input2.value = result;
     let input = document.querySelector(".base");
     input.addEventListener("keyup", () => {
         let input1 = document.querySelector(".base");
         console.log(input1.innerHTML);
-        result = Number(input1.value) * Number(rate);
+        result = Number(input1.value) * Number(value);
         console.log(result);
         input2.value = result;
     })
