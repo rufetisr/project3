@@ -62,4 +62,5 @@ input {
     padding: 10px;
     font-size: large;
     word-break: break-all;
+    border: none;
 }
