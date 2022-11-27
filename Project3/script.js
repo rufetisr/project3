@@ -23,7 +23,9 @@ function addColor(ev) {
     ev.target.classList.add("btn-color");
     base = ev.target.innerHTML;
     console.log(base);
-    request(base, rate);
+    request(base, rate).catch(()=>{
+        alert("Promise is rejected");
+    });
 }
 
 btns.forEach(element => {
@@ -43,7 +45,9 @@ function addColor2(ev) {
     ev.target.classList.add("btn-color");
     rate = ev.target.innerHTML;
     console.log(rate);
-    request(base, rate)
+    request(base, rate).catch(()=>{
+        alert("Promise is rejected");
+    })
 }
 
 btns2.forEach(element => {
@@ -69,8 +73,10 @@ console.log(rate);
 let lbl1 = document.getElementById("lbl1");
 let lbl2 = document.getElementById("lbl2");
 
-request(base, rate);
-
+let re =request(base, rate).catch(()=>{
+    alert("Promise is rejected");
+})
+console.log(re);
 
 async function request(base, rate) {
     let url = `https://api.exchangerate.host/latest?base=${base}&symbols=${rate}`
@@ -80,29 +86,30 @@ async function request(base, rate) {
     lbl1.innerHTML = `1 ${base} = ${data.rates[`${rate}`]} ${rate}`
 
     let url1 = `https://api.exchangerate.host/latest?base=${rate}&symbols=${base}`
+
     let res1 = await fetch(url1);
+
     let data1 = await res1.json();
     lbl2.innerHTML = `1 ${rate} = ${data1.rates[`${base}`]} ${base}`
-
+    console.log(data1);
+    
     Convert(data, rate);
+
 }
 
 
 
 function Convert(data, rate) {
-    // console.log(data);
-    // let lbl1 = document.getElementById("lbl1");
+    let input1 = document.querySelector(".base");
     let input2 = document.querySelector(".rate");
     let value = data.rates[`${rate}`]
     console.log(value);
     let result = 0;
-    let input1 = document.querySelector(".base");
     result = Number(input1.value) * Number(value);
     input2.value = result;
-    let input = document.querySelector(".base");
-    input.addEventListener("keyup", () => {
-        let input1 = document.querySelector(".base");
-        console.log(input1.innerHTML);
+    input1.addEventListener("keyup", () => {
+        // let input1 = document.querySelector(".base");
+        console.log(input1.value);
         result = Number(input1.value) * Number(value);
         console.log(result);
         input2.value = result;
