@@ -124,6 +124,7 @@ main > .converter{
     font-weight: 700;
     font-size: 2vw;
     width: 100%;
+    padding: 10px;
 }
 
 input::-webkit-outer-spin-button,
