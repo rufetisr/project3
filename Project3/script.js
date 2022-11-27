@@ -1,9 +1,9 @@
 let a = document.querySelectorAll("a");
-    a.forEach(element => {
-        element.addEventListener("click",(event)=>{
-            event.preventDefault();
-        })   
-    });
+a.forEach(element => {
+    element.addEventListener("click", (event) => {
+        event.preventDefault();
+    })
+});
 
 
 let btns = document.querySelectorAll(".btns button");
@@ -69,75 +69,38 @@ console.log(rate);
 let lbl1 = document.getElementById("lbl1");
 let lbl2 = document.getElementById("lbl2");
 
+request(base, rate);
+
 
 async function request(base, rate) {
     let url = `https://api.exchangerate.host/latest?base=${base}&symbols=${rate}`
     let res = await fetch(url);
     let data = await res.json();
     console.log(data);
-    // rate = data.rates;
-    // console.log(rate.value);
-
-    if (rate == 'USD') {
-        lbl1.innerHTML = `1 ${base} = ${data.rates.USD} USD`
-        // base = "USD";
-        // rate = 'RUB';
-        // let url = `https://api.exchangerate.host/latest?base=${base}&symbols=${rate}`;
-        // res = await fetch(url);
-        // data = await res.json();
-        // lbl2.innerHTML = `1 ${base} = ${data.rates.RUB} RUB`
-    }
-    else if (rate == 'RUB') {
-        lbl1.innerHTML = `1 ${base} = ${data.rates.RUB} RUB`
-        // base = "RUB";
-        // lbl2.innerHTML = `1 ${base} = ${data.rates.RUB} RUB`
-    }
-    else if (rate == 'EUR') {
-        lbl1.innerHTML = `1 ${base} = ${data.rates.EUR} EUR`
-    }
-    else if (rate == 'GBP') {
-        lbl1.innerHTML = `1 ${base} = ${data.rates.GBP} GBP`
-    }
+    lbl1.innerHTML = `1 ${base} = ${data.rates[`${rate}`]} ${rate}`
 
     let url1 = `https://api.exchangerate.host/latest?base=${rate}&symbols=${base}`
-    let r = base;
-    let base1 = rate;
-    let rate1 = r;
     let res1 = await fetch(url1);
     let data1 = await res1.json();
-    console.log(data1);
-    if (rate1 == 'USD') {
-        lbl2.innerHTML = `1 ${base1} = ${data1.rates.USD} USD`
-    }
-    else if (rate1 == 'RUB') {
-        lbl2.innerHTML = `1 ${base1} = ${data1.rates.RUB} RUB`
-    }
-    else if (rate1 == 'EUR') {
-        lbl2.innerHTML = `1 ${base1} = ${data1.rates.EUR} EUR`
-    }
-    else if (rate1 == 'GBP') {
-        lbl2.innerHTML = `1 ${base1} = ${data1.rates.GBP} GBP`
-    }
-    Convert(data)
+    lbl2.innerHTML = `1 ${rate} = ${data1.rates[`${base}`]} ${base}`
+
+    Convert(data);
 }
 
-request(base, rate);
 
 
 function Convert(data) {
     console.log(data);
     let lbl1 = document.getElementById("lbl1");
-    let lbl2 = document.getElementById("lbl2");
-    
     let input2 = document.querySelector(".rate");
     console.log(lbl1.innerText);
     let rate = lbl1.innerText.split("=")[1].split(" ")[1]
     console.log(rate);
     let result = 0;
     let input = document.querySelector(".base");
-    input.addEventListener("keyup", () => {  
-        let input1 = document.querySelector(".base");      
-       console.log(input1.innerHTML);
+    input.addEventListener("keyup", () => {
+        let input1 = document.querySelector(".base");
+        console.log(input1.innerHTML);
         result = Number(input1.value) * Number(rate);
         console.log(result);
         input2.value = result;
