@@ -72,10 +72,10 @@ console.log(rate);
 let lbl1 = document.getElementById("lbl1");
 let lbl2 = document.getElementById("lbl2");
 
-let re =request(base, rate).catch(()=>{
+request(base, rate).catch(()=>{
     alert("Promise is rejected");
 })
-console.log(re);
+
 
 async function request(base, rate) {
     let url = `https://api.exchangerate.host/latest?base=${base}&symbols=${rate}`

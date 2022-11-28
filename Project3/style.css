@@ -18,9 +18,7 @@ header {
     font-size: 1rem;
     min-width: min-content;
 }
-header img{
-    /* cursor: pointer; */
-}
+
 .menu {
     display: flex;
     flex-wrap: wrap;
@@ -35,11 +33,9 @@ header img{
     flex-direction: row;
     justify-content: space-around;
     flex-grow: 2;
-    /* background-color: white; */
 }
 .menu li a{
-    text-decoration: none;
-    
+    text-decoration: none;    
 }
 
 header .login {
@@ -54,6 +50,7 @@ header .login {
 header .login:hover{
     cursor: pointer;
     opacity: 3;
+    color: white;
 }
 
 /* Main */
@@ -71,8 +68,9 @@ main > h1 {
 main > .converter{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
 }
+
 .section {
     display: flex;
     flex-direction: column;
@@ -121,10 +119,11 @@ main > .converter{
 .area>input {
     height: calc(100% * 1/2);
     border: 1px solid #E5E5E5;
-    font-weight: 700;
-    font-size: 2vw;
+    font-weight: 600;
+    font-size: large;
     width: 100%;
     padding: 10px;
+    outline: none;
 }
 
 input::-webkit-outer-spin-button,
